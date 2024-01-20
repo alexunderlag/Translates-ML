@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Simple Translator</title>
+    <style>
+        /* ...оставшиеся стили... */
+        * {
+            caret-color: transparent;
+}
+.background-section {
+    background-color: #1A1E2B;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Пример эффекта объема через тень */
+}
+        body {
+            background-color: #3F455C; /* Темнее и более серый фон */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .oval-form-container {
+    background-color: #2A2F42; 
+    padding: 30px;
+    border-radius: 50px;
+    
+    text-align: center;
+    min-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Увеличенная интенсивность и распространение тени */
+    width: 500px;
+    max-width: 500px;
+    overflow-y: auto;
+}
+
+.liner{
+    content: "";
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #B5BFD6, transparent);
+    margin: 5px; /* Добавьте отступ сверху, чтобы разделить линию от содержимого блока */
+
+}
+        h1 {
+            color: white;
+            margin: 5% 0;
+        }
+
+        label {
+            color: #B5BFD6;
+        }
+
+        textarea, select, input[type=radio] + label {
+            margin-bottom: 10px;
+            
+            padding: 10px;
+            border: 1px solid #B5BFD6;
+            border-radius: 5px;
+            background-color: #3F455C; /* Темнее и более серый фон для элементов формы */
+            color: white;
+
+
+        }
+
+        input[type=radio] {
+            display: none;
+        }
+
+        input[type=radio] + label {
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: #2A2F42; /* Темный фон для не выбранных кнопок */
+    color: #B5BFD6; /* Светлый цвет текста для не выбранных кнопок */
+}
+
+        input[type=radio]:checked + label {
+            background-color: #50566D; /* Темнее и более серый фон для активных кнопок */
+            color: white;
+        }
+
+        input[type=submit] {
+            padding: 10px 20px;
+            color: white;
+            background-color: #50566D; /* Темнее и более серый фон для кнопки отправки */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #3F455C;
+        }
+
+        .translation-section, .language-section, .text-section {
+            color: white;
+            background-color: #1A1E2B; /* Темнее и более серый фон для секций */
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .language-section {
+            text-align: center;
+        }
+        .text-section label {
+            display: block;
+            margin-bottom: 15px; /* Увеличенное расстояние между названием и полем */
+        }
+
+        .translation-section h2 {
+            color: #B5BFD6; /* Сделан такой же цвет, как у "Введите текст для перевода:" */
+            margin-bottom: 10px;
+        }
+
+        .translation-section p {
+            color: #B5BFD6; /* Сделан такой же цвет, как у "Введите текст для перевода:" */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column; /* Это упорядочит элементы формы вертикально */
+        }
+
+        .language-sections{
+            align-self: flex-end;/* добавить эту строку *//* Это переместит кнопку "Перевести" вправо */
+            margin-top: 10px; /* увеличиваем отступ для кнопки "Перевести" от верхнего блока */
+            
+        }
+
+        textarea, .translation-section p {
+            resize: vertical; /* Запрет изменения размера по горизонтали */
+            max-width: 100%; /* Убедитесь, что длинный текст не расширяет элементы */
+            overflow: auto; /* Добавляет полосу прокрутки, если содержимое слишком длинное */
+            width: 95%; /* Устанавливаем фиксированную ширину */
+    box-sizing: border-box; 
+    resize: none;
+    
+    /* Это убирает уголок для изменения размера *//* Чтобы padding и border включались в общую ширину */
+        }
+        textarea {
+            caret-color: #B5BFD6  !important;}
+    </style>
+</head>
+<body>
+    <div class="oval-form-container">
+        <h1>Переводчик</h1>
+        <div class="liner"></div>
+        <form method="post" action="/">
+            <!-- Текст для перевода -->
+            <div class="text-section  background-section">
+                <label for="text">Введите текст для перевода:</label>
+                <textarea name="text" id="text" rows="4" cols="50"></textarea>
+            </div>
+<div class="liner"></div>
+            {% if translation %}
+            <div class="translation-section background-section">
+                <p>{{ translation }}</p>
+            </div>
+            {% endif %}
+            <div class="liner"></div>
+            <!-- Выбор направления перевода -->
+            <div class="language-section background-section">
+                <input type="radio" id="ru-en" name="lang" value="ru-en" checked>
+                <label for="ru-en">Русский -> Английский</label>
+                <input type="radio" id="en-ru" name="lang" value="en-ru">
+                <label for="en-ru">Английский -> Русский</label>
+            </div>
+            <div class="liner"></div>
+            <div class="language-sections">
+                <input type="submit" value="Перевести">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
