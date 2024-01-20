@@ -1,1 +1,1 @@
-![image](https://github.com/alexunderlag/Translates-ML/assets/8208074/fb7458ea-1432-45d6-bd74-6c767aa1b41f)
+![image](https://github.com/alexunderlag/Translates-ML/assets/8208074/6ea85e51-4697-4a6b-859f-e585d76febf0)![image](https://github.com/alexunderlag/Translates-ML/assets/8208074/f5a81deb-e58c-43de-ae40-a92afaa872d5)
