@@ -58,7 +58,7 @@ en-ru — английский → русский
 В проекте используются предобученные модели, загружаемые из Hugging Face.
 Обучение собственной модели в данном проекте не выполняется — приложение использует уже готовые веса для машинного перевода.
 <p align="left">
-  <img src="[Screenshots/1.jpg](https://github.com/alexunderlag/Translates-ML/assets/8208074/6ea85e51-4697-4a6b-859f-e585d76febf0)" alt="Главный экран" width="250">
-  <img src="[Screenshots/2.jpg](https://github.com/alexunderlag/Translates-ML/assets/8208074/f5a81deb-e58c-43de-ae40-a92afaa872d5)" alt="Категории" width="250">
+  <img src="[[Screenshots/1.jpg](https://github.com/alexunderlag/Translates-ML/assets/8208074/6ea85e51-4697-4a6b-859f-e585d76febf0)](https://github.com/alexunderlag/Translates-ML/assets/8208074/6ea85e51-4697-4a6b-859f-e585d76febf0)" alt="Главный экран" width="250">
+  <img src="[[Screenshots/2.jpg](https://github.com/alexunderlag/Translates-ML/assets/8208074/f5a81deb-e58c-43de-ae40-a92afaa872d5)](https://github.com/alexunderlag/Translates-ML/assets/8208074/f5a81deb-e58c-43de-ae40-a92afaa872d5)" alt="Категории" width="250">
   <img src="Screenshots/3.jpg" alt="Профиль" width="250">
 </p>
